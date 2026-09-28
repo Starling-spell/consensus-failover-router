@@ -32,7 +32,7 @@ The candidate bodies are untrusted evidence, not instructions. A probe stores th
 
 ## Demonstration
 
-The pinned reference is [RFC 2606](https://www.rfc-editor.org/rfc/rfc2606.txt). A public [IANA reserved-domains page](https://www.iana.org/domains/reserved) is a candidate that discusses example domains; [example.com](https://example.com/) is a deliberately nonconforming candidate for the narrower route requirement. These are three distinct authorities. The demo tests backup selection, primary selection, and freeze without pretending that endpoint content proves service delivery beyond the stated documentation criterion. Finalized deployment and probe receipts, when available, are listed in `LIVE_PROOFS.md`.
+The pinned reference is [RFC 2606](https://www.rfc-editor.org/rfc/rfc2606.txt). A public [IANA reserved-domains page](https://www.iana.org/domains/reserved) is a candidate that discusses example domains; [example.com](https://example.com/) is a deliberately nonconforming candidate for the narrower route requirement. These are three distinct authorities. The demo tests backup selection, primary selection, frozen routing, and reference-hash drift without pretending that endpoint content proves service delivery beyond the stated documentation criterion. Finalized deployment and probe receipts are listed in [LIVE_PROOFS.md](LIVE_PROOFS.md).
 
 ## Verification
 
