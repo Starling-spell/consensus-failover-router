@@ -6,7 +6,7 @@ A GenLayer primitive for switching a public information route only when independ
 
 A conventional failover monitor checks HTTP availability. A page can return HTTP 200 while serving an unrelated error, stale placeholder, or materially different document. Here, the contract owns the active routing decision. It fetches the reference and both candidate endpoint bodies during each permissionless probe, verifies the exact reference SHA-256, and asks leader and validators to independently classify each candidate against the reference and route requirement. The full normalized evidence report and selected route must agree exactly.
 
-The operator supplies endpoint URLs and the requirement, but cannot supply a probe verdict, bypass a failed reference hash, or finalize a probe. All three HTTPS authority hosts must differ. The reference document is content-addressed; changing it requires a new route ID. No endpoint is usable before a successful probe.
+The operator supplies endpoint URLs and the requirement, but cannot supply a probe verdict, bypass a failed reference hash, or finalize a probe. All three HTTPS hostnames must differ. The reference document is content-addressed; changing it requires a new route ID. No endpoint is usable before a successful probe.
 
 ```text
 register_route ──> FROZEN
@@ -42,4 +42,4 @@ Set the GenLayer CLI network to `studionet`, deploy `contracts/ConsensusFailover
 
 ## Security limits
 
-This contract evaluates public documents, not private API behavior or service delivery. A malicious endpoint may change between validator fetches, preventing consensus. A source may change after a successful probe; consumers must use `get_active_url`, which enforces the registered TTL, and probe again for fresh routing. The onchain reference hash binds bytes, not the legitimacy of the chosen policy. The operator is responsible for choosing a meaningful reference and requirement.
+This contract evaluates public documents, not private API behavior or service delivery. Distinct hostnames do not prove organizational independence; operators should choose separate providers. A malicious endpoint may change between validator fetches, preventing consensus. A source may change after a successful probe; consumers must use `get_active_url`, which enforces the registered TTL, and probe again for fresh routing. The onchain reference hash binds bytes, not the legitimacy of the chosen policy. The operator is responsible for choosing a meaningful reference and requirement.
